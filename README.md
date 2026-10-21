@@ -1,17 +1,117 @@
-# counter_history
+# Лічильник із історією
 
-A new Flutter project.
+## Опис проєкту
 
-## Getting Started
+Мобільний застосунок, розроблений із використанням Flutter у межах практичної роботи № 3 «Hello World в Flutter».
 
-This project is a starting point for a Flutter application.
+Застосунок дає змогу керувати лічильником, переглядати історію виконаних дій та відстежувати зміну його значення. Інтерфейс реалізовано за допомогою Flutter та Material Design.
 
-A few resources to get you started if this is your first Flutter project:
+## Реалізовані можливості
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- **Збільшення значення:** кнопка для збільшення лічильника на одиницю.
+- **Зменшення значення:** кнопка для зменшення лічильника на одиницю.
+- **Скидання лічильника:** повернення значення до нуля.
+- **Перевірка від'ємних значень:** заборона зменшення лічильника нижче нуля з відображенням повідомлення.
+- **Історія дій:** відображення останніх 10 операцій за допомогою `ListView.builder`.
+- **Час виконання:** збереження дати та часу кожної дії.
+- **Візуальне виділення:** лічильник підсвічується зеленим кольором, якщо його значення ділиться на 10 без остачі.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Історія відображається в зворотному хронологічному порядку: остання виконана дія розташована на початку списку.
+
+## Використані технології
+
+- **Flutter** - розроблення інтерфейсу застосунку.
+- **Dart** - мова програмування.
+- **Material Design** - компоненти та оформлення інтерфейсу.
+- **Git** - контроль версій.
+- **GitHub** - зберігання вихідного коду.
+
+## Структура проєкту
+
+```text
+counter_history/
+├── lib/
+│   ├── main.dart
+│   ├── counter_page.dart
+│   └── history_entry.dart
+├── test/
+│   └── widget_test.dart
+├── docs/
+│   └── screenshots/
+├── android/
+├── pubspec.yaml
+├── analysis_options.yaml
+├── .gitignore
+└── README.md
+```
+
+### Призначення основних файлів
+
+| Файл                     | Призначення                                                 |
+| ------------------------ | ----------------------------------------------------------- |
+| `lib/main.dart`          | Точка входу та налаштування застосунку                      |
+| `lib/counter_page.dart`  | Інтерфейс, логіка лічильника та історія дій                 |
+| `lib/history_entry.dart` | Модель запису історії                                       |
+| `test/widget_test.dart`  | Автоматизований тест початкового стану застосунку           |
+| `pubspec.yaml`           | Конфігурація проєкту та залежностей                         |
+| `.gitignore`             | Перелік файлів і каталогів, які не потрібно додавати до Git |
+
+## Вимоги
+
+Для запуску проєкту необхідні:
+
+- встановлений Flutter SDK;
+- Android Studio або інше сумісне середовище розроблення;
+- Android-емулятор або підключений Android-пристрій.
+
+## Запуск проєкту
+
+1. Клонуйте репозиторій:
+
+   ```bash
+   git clone https://github.com/School-BD3/counter_history.git
+   ```
+
+2. Перейдіть до каталогу проєкту:
+
+   ```bash
+   cd counter_history
+   ```
+
+3. Завантажте залежності:
+
+   ```bash
+   flutter pub get
+   ```
+
+4. Переконайтеся, що емулятор запущено або Android-пристрій підключено.
+
+5. Запустіть застосунок:
+
+   ```bash
+   flutter run
+   ```
+
+## Перевірка якості коду
+
+Для перевірки коду використовується Flutter Analyzer:
+
+```bash
+flutter analyze
+```
+
+Результат перевірки: `No issues found!`.
+
+Для запуску автоматизованих тестів виконайте:
+
+```bash
+flutter test
+```
+
+Результат тестування: `All tests passed!`.
+
+## Примітки
+
+- Історія містить не більше 10 останніх дій.
+- Значення лічильника не може бути від'ємним.
+- Дані лічильника та історія зберігаються в пам'яті під час роботи застосунку. Після повного перезапуску застосунку значення лічильника повертається до нуля, а історія очищується.
